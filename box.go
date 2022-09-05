@@ -1,4 +1,4 @@
-package teams
+package main
 
 import (
 	"encoding/json"
