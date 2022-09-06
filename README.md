@@ -54,4 +54,13 @@ box, err := NewBox[MessageRequest](&SlackMessageRequest{
 ```
 
 ### How a concrete type is chosen for `Unbox`-ing
-`Unbox` iteratively attempts to de-serialise the raw JSON representation of the object inside the box into each of the concrete types given, stopping at the first success. 
+`Unbox` iteratively attempts to de-serialise the raw JSON representation of the object inside the box into each of the concrete types given, stopping at the first success.
+
+### What objects can be put inside a `Box`
+An object can be boxed if it satisfies the following interface:
+```go
+type Boxable interface {
+	Unbox(json.RawMessage) error
+}
+```
+A straight-forward way to implement this interface is to delegate to the default `json.Unmarshal` function.
