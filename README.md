@@ -42,7 +42,7 @@ func (h *CommHandler) HandleMessageDelivery(ctx context.Context, msgRequest Box[
     ...
 }
 ```
-With `Box`, de-serialisisation of the representation of the struct implementing the interface `MessageRequest` is deferred until I explicitly `Unbox` it, providing concrete types that satisfy the interface and might reside inside the `Box`.
+With `Box`, de-serialisisation of the representation of the struct implementing the interface `MessageRequest` is deferred until I explicitly `Unbox` it, providing concrete types that satisfy the interface and might be inside the `Box`.
 
 After `Unbox`-ing, my activity can work with the interface as if it received it as an argument directly.
 
